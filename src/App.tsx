@@ -17,7 +17,7 @@ function App() {
 
         {/* Station name */}
         <h1 className="text-center text-2xl tracking-[0.3em] uppercase font-light mb-12">
-          chunkin
+          chunking
         </h1>
 
         {/* Now playing */}
