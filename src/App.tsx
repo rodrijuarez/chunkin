@@ -6,33 +6,74 @@ function App() {
   const { status, current_track, isLoading } = useNowPlaying();
 
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center p-4 selection:bg-white selection:text-black">
-      <main className="w-full max-w-sm">
-        {/* Esoteric symbol */}
-        <div className="flex justify-center mb-8">
-          <div className="w-16 h-16 border border-white/20 rotate-45 flex items-center justify-center">
-            <div className="w-8 h-8 border border-white/40 rotate-0" />
-          </div>
-        </div>
+    <div className="min-h-screen bg-black text-white selection:bg-red-500 selection:text-black font-mono">
+      {/* Top bar */}
+      <header className="border-b border-white/20 p-4 flex justify-between items-center">
+        <span className="text-xs tracking-widest uppercase text-white/50">
+          {status === 'online' ? '● LIVE' : '○ OFFLINE'}
+        </span>
+        <span className="text-xs tracking-widest uppercase text-white/50">
+          RADIO
+        </span>
+      </header>
 
-        {/* Station name */}
-        <h1 className="text-center text-2xl tracking-[0.3em] uppercase font-light mb-12">
-          chunking
+      {/* Main content */}
+      <main className="p-4 md:p-8">
+        {/* Giant title */}
+        <h1 className="text-[15vw] md:text-[12vw] font-bold leading-[0.85] tracking-tighter uppercase">
+          CHUNK
+          <span className="text-red-500">ING</span>
         </h1>
 
-        {/* Now playing */}
-        <NowPlaying track={current_track} isLoading={isLoading} />
-
-        {/* Player */}
-        <div className="mt-12">
-          <Player stationStatus={status} />
+        {/* Subtitle line */}
+        <div className="flex items-center gap-4 mt-4 border-t border-white/20 pt-4">
+          <span className="text-xs tracking-[0.3em] uppercase text-white/50">
+            Internet Radio
+          </span>
+          <div className="flex-1 h-px bg-white/20" />
+          <span className="text-xs tracking-widest uppercase text-white/50">
+            24/7
+          </span>
         </div>
 
-        {/* Minimal footer */}
-        <footer className="text-center mt-16 text-white/20 text-xs tracking-widest uppercase">
-          <p>live radio</p>
-        </footer>
+        {/* Two column layout */}
+        <div className="mt-12 grid md:grid-cols-2 gap-8 md:gap-16">
+          {/* Left: Now playing */}
+          <div className="border border-white/20 p-6">
+            <span className="text-[10px] tracking-[0.3em] uppercase text-red-500 block mb-6">
+              NOW PLAYING
+            </span>
+            <NowPlaying track={current_track} isLoading={isLoading} />
+          </div>
+
+          {/* Right: Player controls */}
+          <div className="flex flex-col justify-between">
+            <div>
+              <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 block mb-6">
+                CONTROLS
+              </span>
+              <Player stationStatus={status} />
+            </div>
+
+            {/* Info block */}
+            <div className="mt-12 pt-6 border-t border-white/20">
+              <p className="text-xs leading-relaxed text-white/40 max-w-xs">
+                Chunking—the process of breaking down information into smaller,
+                digestible pieces. Like thoughts. Like music.
+              </p>
+            </div>
+          </div>
+        </div>
       </main>
+
+      {/* Footer */}
+      <footer className="fixed bottom-0 left-0 right-0 border-t border-white/20 p-4 bg-black">
+        <div className="flex justify-between items-center text-[10px] tracking-widest uppercase text-white/30">
+          <span>EST. 2025</span>
+          <span className="text-red-500/50">■</span>
+          <span>STREAM</span>
+        </div>
+      </footer>
     </div>
   );
 }

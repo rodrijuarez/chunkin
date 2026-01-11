@@ -1,6 +1,5 @@
 import { PlayButton } from './PlayButton';
 import { VolumeControl } from './VolumeControl';
-import { StreamStatus } from './StreamStatus';
 import { useAudioPlayer } from '../../hooks/useAudioPlayer';
 
 interface PlayerProps {
@@ -20,9 +19,7 @@ export function Player({ stationStatus }: PlayerProps) {
   } = useAudioPlayer();
 
   return (
-    <div className="flex flex-col items-center gap-6">
-      <StreamStatus status={stationStatus} isPlaying={isPlaying} />
-
+    <div>
       <PlayButton
         isPlaying={isPlaying}
         isLoading={isLoading}
@@ -38,7 +35,9 @@ export function Player({ stationStatus }: PlayerProps) {
       />
 
       {error && (
-        <p className="text-red-400 text-sm text-center">{error}</p>
+        <p className="text-red-500 text-[10px] tracking-widest uppercase mt-4">
+          ERROR: {error}
+        </p>
       )}
     </div>
   );
