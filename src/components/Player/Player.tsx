@@ -4,9 +4,10 @@ import { useAudioPlayer } from '../../hooks/useAudioPlayer';
 
 interface PlayerProps {
   stationStatus: 'online' | 'offline';
+  theme: 'light' | 'dark';
 }
 
-export function Player({ stationStatus }: PlayerProps) {
+export function Player({ stationStatus, theme }: PlayerProps) {
   const {
     isPlaying,
     isLoading,
@@ -25,6 +26,7 @@ export function Player({ stationStatus }: PlayerProps) {
         isLoading={isLoading}
         disabled={stationStatus === 'offline'}
         onClick={togglePlay}
+        theme={theme}
       />
 
       <VolumeControl
@@ -32,6 +34,7 @@ export function Player({ stationStatus }: PlayerProps) {
         isMuted={isMuted}
         onVolumeChange={setVolume}
         onToggleMute={toggleMute}
+        theme={theme}
       />
 
       {error && (
