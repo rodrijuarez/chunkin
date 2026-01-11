@@ -26,7 +26,7 @@ export function NowPlaying({ track, isLoading }: NowPlayingProps) {
         <div>
           <p className="text-lg font-bold tracking-tight">—</p>
           <p className="text-[10px] tracking-[0.3em] uppercase text-white/30 mt-1">
-            WAITING FOR SIGNAL
+            ESPERANDO SEÑAL
           </p>
         </div>
       </div>

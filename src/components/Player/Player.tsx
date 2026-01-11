@@ -36,7 +36,7 @@ export function Player({ stationStatus }: PlayerProps) {
 
       {error && (
         <p className="text-red-500 text-[10px] tracking-widest uppercase mt-4">
-          ERROR: {error}
+          ERROR: {error === 'Failed to connect to stream' ? 'No se pudo conectar' : error}
         </p>
       )}
     </div>

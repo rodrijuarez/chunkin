@@ -10,7 +10,7 @@ function App() {
       {/* Top bar */}
       <header className="border-b border-white/20 p-4 flex justify-between items-center">
         <span className="text-xs tracking-widest uppercase text-white/50">
-          {status === 'online' ? '● LIVE' : '○ OFFLINE'}
+          {status === 'online' ? '● EN VIVO' : '○ FUERA DE LÍNEA'}
         </span>
         <span className="text-xs tracking-widest uppercase text-white/50">
           RADIO
@@ -28,7 +28,7 @@ function App() {
         {/* Subtitle line */}
         <div className="flex items-center gap-4 mt-4 border-t border-white/20 pt-4">
           <span className="text-xs tracking-[0.3em] uppercase text-white/50">
-            Internet Radio
+            Radio por Internet
           </span>
           <div className="flex-1 h-px bg-white/20" />
           <span className="text-xs tracking-widest uppercase text-white/50">
@@ -41,7 +41,7 @@ function App() {
           {/* Left: Now playing */}
           <div className="border border-white/20 p-6">
             <span className="text-[10px] tracking-[0.3em] uppercase text-red-500 block mb-6">
-              NOW PLAYING
+              ESCUCHANDO
             </span>
             <NowPlaying track={current_track} isLoading={isLoading} />
           </div>
@@ -50,7 +50,7 @@ function App() {
           <div className="flex flex-col justify-between">
             <div>
               <span className="text-[10px] tracking-[0.3em] uppercase text-white/50 block mb-6">
-                CONTROLS
+                CONTROLES
               </span>
               <Player stationStatus={status} />
             </div>
@@ -58,8 +58,8 @@ function App() {
             {/* Info block */}
             <div className="mt-12 pt-6 border-t border-white/20">
               <p className="text-xs leading-relaxed text-white/40 max-w-xs">
-                Chunking—the process of breaking down information into smaller,
-                digestible pieces. Like thoughts. Like music.
+                Chunking—el proceso de dividir información en fragmentos más
+                pequeños y digeribles. Como los pensamientos. Como la música.
               </p>
             </div>
           </div>
@@ -71,7 +71,7 @@ function App() {
         <div className="flex justify-between items-center text-[10px] tracking-widest uppercase text-white/30">
           <span>EST. 2025</span>
           <span className="text-red-500/50">■</span>
-          <span>STREAM</span>
+          <span>TRANSMISIÓN</span>
         </div>
       </footer>
     </div>

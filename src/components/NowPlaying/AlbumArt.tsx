@@ -8,7 +8,7 @@ export function AlbumArt({ url, alt }: AlbumArtProps) {
     return (
       <div className="aspect-square w-full max-w-[200px] border border-white/20 flex items-center justify-center bg-white/5">
         <span className="text-[10px] tracking-[0.3em] uppercase text-white/30">
-          NO IMAGE
+          SIN IMAGEN
         </span>
       </div>
     );

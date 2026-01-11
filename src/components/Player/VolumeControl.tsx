@@ -21,7 +21,7 @@ export function VolumeControl({
         className="text-[10px] tracking-[0.3em] uppercase text-white/50 hover:text-red-500 transition-colors w-16 text-left"
         aria-label={isMuted ? 'Unmute' : 'Mute'}
       >
-        {isMuted ? 'MUTED' : 'VOL'}
+        {isMuted ? 'MUDO' : 'VOL'}
       </button>
 
       <div className="flex-1 relative">

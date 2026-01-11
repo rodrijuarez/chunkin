@@ -15,11 +15,11 @@ export function PlayButton({ isPlaying, isLoading, disabled, onClick }: PlayButt
     >
       <span className="text-sm tracking-[0.3em] uppercase font-bold group-hover:text-black transition-colors">
         {isLoading ? (
-          'CONNECTING...'
+          'CONECTANDO...'
         ) : isPlaying ? (
-          '■ STOP'
+          '■ DETENER'
         ) : (
-          '▶ PLAY'
+          '▶ REPRODUCIR'
         )}
       </span>
     </button>
