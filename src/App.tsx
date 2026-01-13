@@ -35,17 +35,10 @@ function App() {
       {/* Main content */}
       <main className="p-4 md:p-8">
         {/* Giant title */}
-        <div className="flex items-end gap-4">
-          <img
-            src="/frutilla.gif"
-            alt="frutilla"
-            className="h-[15vw] md:h-[12vw] w-auto"
-          />
-          <h1 className="text-[15vw] md:text-[12vw] font-bold leading-[0.85] tracking-tighter uppercase">
-            CHUNK
-            <span className="text-red-500">ING</span>
-          </h1>
-        </div>
+        <h1 className="text-[15vw] md:text-[12vw] font-bold leading-[0.85] tracking-tighter uppercase">
+          CHUNK
+          <span className="text-red-500">ING</span>
+        </h1>
 
         {/* Subtitle line */}
         <div className={`flex items-center gap-4 mt-4 border-t pt-4 ${
@@ -83,10 +76,17 @@ function App() {
 
             {/* Info block */}
             <div className={`mt-12 pt-6 border-t ${isDark ? 'border-white/20' : 'border-black/20'}`}>
-              <p className={`text-xs leading-relaxed max-w-xs ${isDark ? 'text-white/40' : 'text-black/40'}`}>
-                Chunking—el proceso de dividir información en fragmentos más
-                pequeños y digeribles. Como los pensamientos. Como la música.
-              </p>
+              <div className="flex items-start gap-4">
+                <p className={`text-xs leading-relaxed max-w-xs ${isDark ? 'text-white/40' : 'text-black/40'}`}>
+                  Chunking—el proceso de dividir información en fragmentos más
+                  pequeños y digeribles. Como los pensamientos. Como la música.
+                </p>
+                <img
+                  src="/frutilla.gif"
+                  alt="frutilla"
+                  className="w-16 h-16 md:w-20 md:h-20"
+                />
+              </div>
               <p className={`text-[10px] tracking-[0.2em] uppercase mt-4 ${isDark ? 'text-white/20' : 'text-black/20'}`}>
                 Creado desde Turdera ↔ Salta
               </p>
