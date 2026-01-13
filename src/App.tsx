@@ -35,7 +35,7 @@ function App() {
       {/* Main content */}
       <main className="p-4 md:p-8">
         {/* Giant title */}
-        <div className="flex items-end gap-4">
+        <div className="flex items-end justify-between">
           <h1 className="text-[15vw] md:text-[12vw] font-bold leading-[0.85] tracking-tighter uppercase">
             CHUNK
             <span className="text-red-500">ING</span>
