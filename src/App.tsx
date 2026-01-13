@@ -47,7 +47,7 @@ function App() {
           <img
             src={isDark ? '/dark-frutilla.gif' : '/frutilla.gif'}
             alt="frutilla"
-            className={`h-[18vw] md:h-[15vw] w-auto border-l pl-4 ${isDark ? 'border-white/20' : 'border-black/20'}`}
+            className={`h-[18vw] md:h-[15vw] w-auto border-l pl-4 relative z-10 ${isDark ? 'border-white/20' : 'border-black/20'}`}
           />
         </div>
 
