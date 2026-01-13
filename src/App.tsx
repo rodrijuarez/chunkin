@@ -10,7 +10,7 @@ function App() {
   const isDark = theme === 'dark';
 
   return (
-    <div className={`min-h-screen font-mono transition-colors duration-300 ${
+    <div className={`min-h-screen font-mono transition-colors duration-300 noise-overlay ${
       isDark
         ? 'bg-black text-white selection:bg-red-500 selection:text-black'
         : 'bg-white text-black selection:bg-red-500 selection:text-white'
@@ -20,7 +20,11 @@ function App() {
         isDark ? 'border-white/20' : 'border-black/20'
       }`}>
         <span className={`text-xs tracking-widest uppercase ${isDark ? 'text-white/50' : 'text-black/50'}`}>
-          {status === 'online' ? '● EN VIVO' : '○ FUERA DE LÍNEA'}
+          {status === 'online' ? (
+            <><span className="inline-block animate-pulse text-red-500">●</span> EN VIVO</>
+          ) : (
+            '○ FUERA DE LÍNEA'
+          )}
         </span>
         <button
           onClick={toggleTheme}
@@ -43,7 +47,7 @@ function App() {
           <img
             src="/frutilla.gif"
             alt="frutilla"
-            className="h-[18vw] md:h-[15vw] w-auto"
+            className={`h-[18vw] md:h-[15vw] w-auto border-2 ${isDark ? 'border-white' : 'border-black'}`}
           />
         </div>
 
@@ -63,7 +67,13 @@ function App() {
         {/* Two column layout */}
         <div className="mt-12 grid md:grid-cols-2 gap-8 md:gap-16">
           {/* Left: Now playing */}
-          <div className={`border p-6 ${isDark ? 'border-white/20' : 'border-black/20'}`}>
+          <div className={`border p-6 relative ${isDark ? 'border-white/20' : 'border-black/20'}`}>
+            {/* Corner brackets */}
+            <span className={`absolute top-0 left-0 text-lg ${isDark ? 'text-white/40' : 'text-black/40'}`}>[</span>
+            <span className={`absolute top-0 right-0 text-lg ${isDark ? 'text-white/40' : 'text-black/40'}`}>]</span>
+            <span className={`absolute bottom-0 left-0 text-lg ${isDark ? 'text-white/40' : 'text-black/40'}`}>[</span>
+            <span className={`absolute bottom-0 right-0 text-lg ${isDark ? 'text-white/40' : 'text-black/40'}`}>]</span>
+
             <span className="text-[10px] tracking-[0.3em] uppercase text-red-500 block mb-6">
               ESCUCHANDO
             </span>
