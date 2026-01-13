@@ -4,7 +4,7 @@ import { useNowPlaying } from './hooks/useNowPlaying';
 import { useTheme } from './hooks/useTheme';
 
 function App() {
-  const { status, current_track, isLoading } = useNowPlaying();
+  const { status, current_track, history, isLoading } = useNowPlaying();
   const { theme, toggleTheme } = useTheme();
 
   const isDark = theme === 'dark';
@@ -77,7 +77,7 @@ function App() {
             <span className="text-[10px] tracking-[0.3em] uppercase text-red-500 block mb-6">
               ESCUCHANDO
             </span>
-            <NowPlaying track={current_track} isLoading={isLoading} theme={theme} />
+            <NowPlaying track={current_track} history={history} isLoading={isLoading} theme={theme} />
           </div>
 
           {/* Right: Player controls */}

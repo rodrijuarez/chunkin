@@ -8,6 +8,7 @@ export function useNowPlaying() {
   const [status, setStatus] = useState<RadioStatus>({
     status: 'offline',
     current_track: null,
+    history: [],
   });
   const [isLoading, setIsLoading] = useState(true);
 
@@ -19,6 +20,7 @@ export function useNowPlaying() {
       setStatus({
         status: 'offline',
         current_track: null,
+        history: [],
       });
     } finally {
       setIsLoading(false);

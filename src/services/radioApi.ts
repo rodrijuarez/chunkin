@@ -1,4 +1,4 @@
-import type { RadioStatus, NowPlayingData } from '../types';
+import type { RadioStatus, NowPlayingData, HistoryTrack } from '../types';
 
 const API_URL = import.meta.env.VITE_API_URL || '';
 
@@ -25,11 +25,26 @@ interface RadioCoResponse {
   outputs?: unknown[];
 }
 
+function parseTrackTitle(title: string): { artist: string; title: string } {
+  const parts = title.split(' - ');
+  if (parts.length >= 2) {
+    return {
+      artist: parts[0].trim(),
+      title: parts.slice(1).join(' - ').trim(),
+    };
+  }
+  return {
+    artist: 'Unknown Artist',
+    title: title,
+  };
+}
+
 export async function fetchNowPlaying(): Promise<RadioStatus> {
   if (!API_URL) {
     return {
       status: 'offline',
       current_track: null,
+      history: [],
     };
   }
 
@@ -47,31 +62,33 @@ export async function fetchNowPlaying(): Promise<RadioStatus> {
     let nowPlaying: NowPlayingData | null = null;
 
     if (currentTrack?.title) {
-      // Radio.co format is usually "Artist - Title"
-      const parts = currentTrack.title.split(' - ');
-      if (parts.length >= 2) {
-        nowPlaying = {
-          artist: parts[0].trim(),
-          title: parts.slice(1).join(' - ').trim(),
-          artwork_url: currentTrack.artwork_url_large || currentTrack.artwork_url,
-        };
-      } else {
-        nowPlaying = {
-          artist: 'Unknown Artist',
-          title: currentTrack.title,
-          artwork_url: currentTrack.artwork_url_large || currentTrack.artwork_url,
-        };
-      }
+      const parsed = parseTrackTitle(currentTrack.title);
+      nowPlaying = {
+        artist: parsed.artist,
+        title: parsed.title,
+        artwork_url: currentTrack.artwork_url_large || currentTrack.artwork_url,
+      };
     }
+
+    // Parse history
+    const history: HistoryTrack[] = (data.history || []).map((track) => {
+      const parsed = parseTrackTitle(track.title);
+      return {
+        artist: parsed.artist,
+        title: parsed.title,
+      };
+    });
 
     return {
       status: data.status === 'online' ? 'online' : 'offline',
       current_track: nowPlaying,
+      history,
     };
   } catch {
     return {
       status: 'offline',
       current_track: null,
+      history: [],
     };
   }
 }

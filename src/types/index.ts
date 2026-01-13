@@ -5,9 +5,15 @@ export interface NowPlayingData {
   album?: string;
 }
 
+export interface HistoryTrack {
+  title: string;
+  artist: string;
+}
+
 export interface RadioStatus {
   status: 'online' | 'offline';
   current_track: NowPlayingData | null;
+  history: HistoryTrack[];
   listeners?: number;
 }
 
