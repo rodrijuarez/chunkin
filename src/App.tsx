@@ -84,7 +84,7 @@ function App() {
                 <img
                   src="/frutilla.gif"
                   alt="frutilla"
-                  className="w-16 h-16 md:w-20 md:h-20"
+                  className="w-24 h-24 md:w-32 md:h-32"
                 />
               </div>
               <p className={`text-[10px] tracking-[0.2em] uppercase mt-4 ${isDark ? 'text-white/20' : 'text-black/20'}`}>
