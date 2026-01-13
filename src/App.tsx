@@ -45,7 +45,7 @@ function App() {
             <span className="text-red-500">ING</span>
           </h1>
           <img
-            src={isDark ? '/dark-frutilla.png' : '/frutilla.gif'}
+            src={isDark ? '/dark-frutilla.gif' : '/frutilla.gif'}
             alt="frutilla"
             className={`h-[18vw] md:h-[15vw] w-auto border-l pl-4 ${isDark ? 'border-white/20' : 'border-black/20'}`}
           />
