@@ -95,7 +95,7 @@ function App() {
         <div className={`flex justify-between items-center text-[10px] tracking-widest uppercase ${
           isDark ? 'text-white/30' : 'text-black/30'
         }`}>
-          <span>EST. 2025</span>
+          <span>EST. 2026</span>
           <span className="text-red-500/50">■</span>
           <span>TRANSMISIÓN</span>
         </div>
