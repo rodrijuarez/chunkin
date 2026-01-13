@@ -35,10 +35,17 @@ function App() {
       {/* Main content */}
       <main className="p-4 md:p-8">
         {/* Giant title */}
-        <h1 className="text-[15vw] md:text-[12vw] font-bold leading-[0.85] tracking-tighter uppercase">
-          CHUNK
-          <span className="text-red-500">ING</span>
-        </h1>
+        <div className="flex items-end gap-4">
+          <img
+            src="/frutilla.gif"
+            alt="frutilla"
+            className="h-[15vw] md:h-[12vw] w-auto"
+          />
+          <h1 className="text-[15vw] md:text-[12vw] font-bold leading-[0.85] tracking-tighter uppercase">
+            CHUNK
+            <span className="text-red-500">ING</span>
+          </h1>
+        </div>
 
         {/* Subtitle line */}
         <div className={`flex items-center gap-4 mt-4 border-t pt-4 ${
