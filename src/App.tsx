@@ -43,7 +43,7 @@ function App() {
           <img
             src="/frutilla.gif"
             alt="frutilla"
-            className="h-[18vw] md:h-[15vw] w-auto"
+            className="h-[15vw] md:h-[12vw] w-auto"
           />
         </div>
 
